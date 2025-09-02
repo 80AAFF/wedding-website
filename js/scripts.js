@@ -184,7 +184,7 @@ $(document).ready(function () {
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('May 25, 2025 18:00'),
+            end: new Date('May 25, 2026 18:00'),
 
             // Event Address
             address: 'Brache 2, 24211 Wahlstorf, Germany',
@@ -204,11 +204,10 @@ $(document).ready(function () {
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
+        if (MD5($('#invite_code').val()) !== '496f8b3554f398de3ea96f21484dd5a3') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Dein Einladungscode ist nicht korrekt.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbypqFvc0c9r6RHY4xi1Vd_BVVgl1rhJo-R_WoixEqgT7gBXhH_c30preKiCbilm0Nly/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
