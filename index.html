@@ -1,0 +1,532 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Tina und Anton heiraten!</title>
+    <meta name="description" content="Wir wollen euch zu unserem großen Tag einladen!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="Tina & Anton heiraten">
+    <meta property="og:description" content="Wir wollen euch zu unserem großen Tag einladen!">
+    <meta property="og:image" content="https://hochzeit.wltr.be/img/hero.jpg">
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+
+    <script>
+        // load css files from CDN if local node_modules fail
+        function loadCssFromCDN(css) {
+            // create new link tag
+            const link = document.createElement('link');
+            if (css === 'animate.css') {
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css';
+            } else if (css === 'font-awesome.css') {
+                link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+            }
+            link.rel = 'stylesheet';
+
+            // add link tag to head section
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+
+        // load js files from CDN if local node_modules fail
+        function loadJsFromCDN(js) {
+            if (js === 'waypoints.js') {
+                document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"><\/script>');
+            } else if (js === 'jquery.js') {
+                document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>');
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="css/queries.css">
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" onerror="loadCssFromCDN('animate.css')">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" onerror="loadCssFromCDN('font-awesome.css')">
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+<body id="top">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<section class="hero">
+    <section class="navigation">
+        <header>
+            <div class="header-content">
+                <div class="logo"><a href="#"><img src="img/logo.png" alt="Logo"></a></div>
+                <div class="header-nav">
+                    <nav>
+                        <ul class="primary-nav">
+                            <li><a href="#intro">Unsere Geschichte</a></li>
+                            <li><a href="#events">Events</a></li>
+                            <li><a href="#eng-pics">Hochzeitsbilder</a></li>
+                            <li class="hidden-sm hidden-xs"><a href="#video-bg">Einblick in den Hof</a></li>
+                        </ul>
+                        <ul class="member-actions">
+                            <li><a href="#map" class="login">Veranstaltungsort</a></li>
+                            <li><a href="#rsvp" class="btn-white btn-small">RSVP</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="navicon">
+                    <a class="nav-toggle" href="#"><span></span></a>
+                </div>
+            </div>
+        </header>
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="text-center hero-content">
+                    <img src="img/logo-lg.png">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 hidden-xs"></div>
+            <div class="text-center col-sm-4 hidden-xs"><a href="#rsvp"
+                                                           class="btn btn-accent btn-large rsvp-btn">RSVP</a></div>
+            <div class="col-sm-4 hidden-xs"></div>
+        </div>
+    </div>
+    <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>
+</section>
+
+<section id="invitation" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-md-12">
+                <h3>Wir haben ja gesagt</h3>
+                <h4>und das wollen wir gemeinsam mit euch feiern!</h4>
+                <p>
+                    Vom 22. bis 25. Mai 2026 laden wir euch auf den idyllischen <a href="#map">Hof 
+                    Brache bei Plön </a> ein. <br> Freut euch auf eine Kombination aus Feier und 
+                    entspanntem Wochenende im Grünen.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="intro">
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-md-12">
+                <h3 class="header">Unsere Geschichte</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/tina.jpg" class="wp1"></div>
+            <div class="col-md-6">
+                <p>
+                    Kennengelernt haben wir uns als Tina-Tintentfisch und Anton-Ananas. Danach brauchte es viele 
+                    Jahre und eine globale Pandemie um uns näher zu bringen. An einem lauen Sommerabend auf (jetzt) 
+                    unserem Balkon schlug der Funken dann endlich über. Von dort an machten wir uns gemeinsam auf die 
+                    Dinge im Leben zu entdecken, die uns gefallen. Spontan mal die Alpen durchqueren, oder mit dem Rad 
+                    nach Sylt fahren? Kein Problem, morgen geht es los! Auf unserer längsten und abenteuerlichsten Reise 
+                    nach Nepal sollten wir nicht nur den bisher höchsten Punkt unseres Lebens besteigen, sondern auch zu 
+                    dritt wieder nach Hause kommen. Kurze Zeit später kommt Hannes zu uns. Im Herbst des selben Jahres 
+                    bringt Tina den Mut auf mir den Antrag zu machen. Nach unserer standesamtlichen Hochzeit am 30.12.24 
+                    freuen wir uns darauf uns noch einmal vor allen Freunden und Familie das Ja-Wort zu geben.
+                </p>
+            </div>
+            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/anton.jpg" class="wp2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/tina.jpg" class="wp11"></div>
+            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/anton.jpg" class="wp12"></div>
+        </div>
+    </div>
+</section>
+
+<section class="events section-padding" id="events">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="header">Events</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
+                <div class="wp3">
+                    <p><strong>22. Mai - Freitag</strong></p>
+
+                    <h5>Ankommen <span class="time">12 - 18h</span></h5>
+                    <p>
+                        Ab 10h haben wir die Location. Wir kommen zwischen 12 und 13h an und freuen uns dann auf euch. 
+                        Ihr könnt also entspannt am frühen Nachmittag eintreffen. Nach dem Ankommen bleibt Zeit, die 
+                        Zimmer zu beziehen. Und wer Lust hat, kann gern bei den Vorbereitungen mit anpacken. Jede 
+                        helfende Hand ist willkommen!
+                    </p>
+                </div>
+                <div class="wp5">
+                    <h5>Abendessen <span class="time">18 - 22h</span></h5>
+                    <p>
+                        Für ein gemeinsames Abendessen würden wir uns freuen, wenn ihr etwas für ein Mitbringbuffet 
+                        beizusteuern könntet (weiter unten gibt es noch einmal mehr Infos). Den Tag wollen wir dann 
+                        entspannt bei netten Gesprächen und guter Stimmung ausklingen lassen. Für Getränke und Snacks 
+                        wird gesorgt. 
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
+                <div class="wp4">
+                    <p><strong>23. Mai - Samstag</strong></p>
+
+                    <h5>Brunch <span class="time">ab 8h</span></h5>
+                    <p>
+                        Gemütliches Frühstück, dann Chillen. Oder, wenn ihr Lust habt, letzte Handgriffe. Mittags 
+                        gibt es Reste vom Vortag als kleines Selbstbedienungsbuffet. Am Nachmittag wird es ernst! 
+                        Wer erst heute kommt: Bitte bis spätestens 14:30 Uhr da sein, damit wir gemeinsam starten 
+                        können.
+                    </p>
+                </div>
+                <div class="wp6">
+                    <h5>Hochzeitsfeier <span class="time">15 - 2h+1</span></h5>
+                    <p>
+                        Jetzt wird es ernst 😉! Am See geben wir uns in einer freien Trauung noch einmal das Ja-Wort. 
+                        Danach starten wir mit Kaffee und Kuchen in den Nachmittag, bevor es bei Spielen rund geht. 
+                        Ab 19 Uhr wartet ein gemeinsames Abendessen auf uns und danach: Party pur mit Hochzeitstorte!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
+                <div class="wp7">
+                    <p><strong>24. Mai - Sonntag</strong></p>
+
+                    <h5>Brunch <span class="time">ab 9h</span></h5>
+                    <p>
+                        Wir beginnen den Tag entspannt mit einem gemeinsamen Brunch. Danach habt ihr alle 
+                        Möglichkeiten: Chillen, Spiele spielen oder die Umgebung erkunden. Ob Kanufahren, das Plöner 
+                        Sonnensystem ablaufen oder Tiere auf dem nahegelegenen Bauernhof besuchen. Macht einfach das, 
+                        worauf ihr Lust habt.      
+                    </p>
+                </div>
+                <div class="wp9">
+                    <h5>Abendessen <span class="time">18 - 22h</span></h5>
+                    <p>
+                        Ein Mittagessen ist nicht eingeplant. Ab 18 Uhr treffen wir uns zum gemeinsamen Abendessen. 
+                        Falls es noch Reste gibt, werden die dann auf jeden Fall verputzt. Und wer zwischendurch 
+                        Hunger bekommt: Es gibt Pizza vom Italiener um die Ecke - auf Selbstkostenbasis.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
+                <div class="wp8">
+                    <p><strong>25. Mai - Montag</strong></p>
+
+                    <h5>Frühstück <span class="time">ab 9h</span></h5>
+                    <p>
+                        Zum Abschluss gib es noch ein gemeinsames Frühstück. Danach räumen wir zusammen die letzten 
+                        Dinge ab. Jede helfende Hand ist gern gesehen. Anschließend könnt ihr euch in Ruhe auf die 
+                        Heimreise vorbereiten. Die Location steht uns bis 18 Uhr zur Verfügung, wir fahren gegen 
+                        15 Uhr Richtung Berlin.
+                    </p>
+                </div>
+                <div class="wp10">
+                    <h5>Abfahrt <span class="time">bis 18h</span></h5>
+                    <p>
+                        Zum Schluss bleibt nur noch: Abfahrt. Mit vollen Herzen, schönen Erinnerungen und vielleicht 
+                        auch ein bisschen Wehmut machen wir uns alle auf den Heimweg.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row section-padding">
+            <div class="text-center col-md-4 col-md-offset-4">
+                <a class="btn btn-accent btn-small" data-toggle="modal" data-target="#dc-modal">
+                    <i class="fa fa-barcode"></i>&nbsp;&nbsp;Dress code
+                </a>
+            </div>
+        </div>
+        <!--<div class="row">
+            <div class="col-xs-12 section-border section-padding">
+            </div>
+        </div>-->
+    </div>
+
+    <div id="dc-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
+                    </button>
+                    <h3 class="text-center section-padding">Ugh... dress codes?</h3>
+                    <h5>Hochzeitsfeier <span class="time">Samstag ab 15h</span></h5>
+                    <p>
+                        <strong>Cocktail</strong><br>
+                        Wir freuen uns, wenn ihr euch schick macht, aber bitte nicht zu steif!<br>
+                        Für die Damen passen <a href="https://www.pinterest.com/twitmuck/wedding-ladies/">Cocktailkleider, elegante Jumpsuits oder schicke Kombinationen</a>.
+                        Die Herren sind mit <a href="https://www.pinterest.com/twitmuck/wedding-gentlemen/">Hemd, Sakko und Stoffhose, gerne ohne Krawatte</a>, genau richtig angezogen.<br>
+                        Hauptsache: gepflegt, ihr fühlt euch wohl und ihr könnt ordentlich tanzen!
+                    </p>
+                    <h5>Ansonsten </h5>
+                    <p>
+                        <strong>Casual</strong><br>
+                        Wir wollen entspannen, Spiele spielen, Sport machen, die Gegend erkunden oder, wenn es das Wetter zulässt, in den See springen.<br>
+                        Also … Badesachen nicht vergessen!
+                    </p>
+                    <h5>Das Wetter in Preetz</h5>
+                    <p class="no-bottom-padding">
+                        Jede Planung ist nur so gut wie das Wetter. Bitte passt euch an das Wetter an. Wir erwarten 
+                        tagsüber knapp unter 20°C und nachts um die 10°C. Natürlich gehen wir von Sonne aus, es kann 
+                        aber sein, dass es zu Regen kommt.<br>
+                        Die Zahlen und Fakten zum Wetter der letzten Jahre in Preetz:
+                    </p>
+                    <ul class="list--bulleted">
+                        <li><a href="https://meteostat.net/en/place/de/preetz?s=10150&t=2025-05-22/2025-05-25">Metostat Preetz 2025</a></li>
+                        <li><a href="https://meteostat.net/en/place/de/preetz?s=10150&t=2024-05-22/2024-05-25">Metostat Preetz 2024</a></li>
+                        <li><a href="https://meteostat.net/en/place/de/preetz?s=10150&t=2023-05-22/2023-05-25">Metostat Preetz 2023</a></li>
+                    </ul>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+</section>
+
+<section id="eng-pics" class="section-padding">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="text-center col-md-12">
+                <h3 class="header">Hochzeitsbilder</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/mr_pics/IMG_1124-lg.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/mr_pics/IMG_1124-sm.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/mr_pics/IMG_1930-lg.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/mr_pics/IMG_1930-sm.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/mr_pics/120214-lg.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/mr_pics/120214-sm.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/mr_pics/IMG_1212-lg.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/mr_pics/IMG_1212-sm.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/mr_pics/IMG_1221-lg.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/mr_pics/IMG_1221-sm.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/mr_pics/DSC07609-02-lg.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/mr_pics/DSC07609-02-sm.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row hidden-lg hidden-md hidden-xs">
+            <div class="col-xs-12 section-border section-padding"></div>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-md-12">
+            <div class="diamond floating-logo">
+                <img src="img/sketch-logo.png" alt="Sketch Logo">
+                <div class="ring"></div>
+            </div>
+        </div>
+    </div>-->
+</section>
+
+<section id="video-bg" class="hidden-sm hidden-xs">
+    <div id="bgndVideo" class="player"
+         data-property="{videoURL:'https://youtu.be/4uEQNxx2mnA',containment:'#video-bg',autoPlay:true, mute:true, showControls:false, opacity:1}">
+    </div>
+    <div id="video-content">
+        <h5>Brache</h5>
+        <p>Ort der Freude</p>
+    </div>
+</section>
+
+<section id="map" class="section-padding">
+    <div class="text-center">
+        <h3>Wie komme ich nach Brache?</h3>
+        <p>Es ist viel einfacher, als du denkst!</p>
+    </div>
+    <div id="map-canvas"></div>
+    <div id="map-content-wrapper" class="container pointer-events-none">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
+                <div class="text-center">
+                    <div id="btn-show-content" class="pointer-events-auto toggle-map-content">
+                        <i class="fa fa-info-circle"></i>&nbsp;&nbsp; Show info
+                    </div>
+                </div>
+                <div id="map-content" class="pointer-events-auto">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Hof Brache</h5>
+                            <p>Brache 2, 24211 Wahlstorf, Germany</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Optionen</h5>
+                            <p><i class="fa fa-mobile"></i> <a href="https://bahn.de">Deutsche Bahn</a><br>
+                                <i class="fa fa-mobile"></i> <a href="TBD">Bus</a></p>
+                        </div>
+                    </div>
+                    <div class="text-center row">
+                        <div class="col-md-6" style="padding: 5px;">
+                            <a class="btn btn-accent btn-small" id="btn-show-map"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Show
+                                map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="text-center rsvp" id="rsvp">
+
+    <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
+                    </button>
+                    <div class="section-padding">
+                        <h3>Thank you!</h3>
+                        <p>We are glad to see you join us on our big day.</p>
+                        <div id="add-to-cal"></div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h3>Worauf wartest du noch?</h3>
+                <p>Wir würden uns sehr freuen, wenn ihr uns bis zum 1. November 2025 eure Teilnahme bestätigen könntet.</p>
+                <form id="rsvp-form" class="rsvp-form"
+                      action=""
+                      method="POST">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
+                                                                     placeholder="Deine Email"
+                                                                     required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-user"></i><input name="name" class=""
+                                                                 placeholder="Dein Name"
+                                                                 required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
+                                                                  max="4"
+                                                                  placeholder="Ehemann/Ehefrau oder Kinder"
+                                                                  required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
+                                                                class="" min="0"
+                                                                placeholder="Einladungscode"
+                                                                required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="alert-wrapper"></div>
+                    </div>
+                    <button class="btn-fill rsvp-btn">
+                        Ja, ich komme!
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="text-center col-sm-12 content">
+                <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up"></i></a></span>
+                <p>Von Anton mit viel <span class="fa fa-heart pulse2"></span> für Tina erstellt</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/vendor/jquery-1.11.2.min.js" onerror="loadJsFromCDN('jquery.js')"></script>
+<script src="node_modules/waypoints/lib/jquery.waypoints.min.js" onerror="loadJsFromCDN('waypoints.js')"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/jquery.mb.YTPlayer.min.js"></script>
+<script src="js/vendor/ouical.js"></script>
+<script src="js/scripts.min.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMC65-etXaM_ei9gYbqo6QuOd0Rk5E2Hk&callback=initMap"></script>
+</body>
+</html>
