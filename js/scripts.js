@@ -214,18 +214,28 @@ $(document).ready(function () {
         var index = guestIndex++;
         var adultChecked = defaultType === 'adult' ? 'checked' : '';
         var childChecked = defaultType === 'child' ? 'checked' : '';
+        var adultId = 'guest-type-' + index + '-adult';
+        var childId = 'guest-type-' + index + '-child';
         var entryHtml = '' +
             '<div class="guest-entry" data-index="' + index + '">' +
             '    <div class="row">' +
             '        <div class="col-sm-6 col-xs-12">' +
-            '            <div class="form-input-group">' +
+            '            <div class="form-input-group" style="margin: 0px 0px;">' +
             '                <i class="fa fa-user"></i><input type="text" name="guest_name[' + index + ']" class="" placeholder="Name der Begleitung" required>' +
             '            </div>' +
             '        </div>' +
             '        <div class="col-sm-5 col-xs-10">' +
-            '            <div class="guest-type-options">' +
-            '                <label class="radio-inline"><input type="radio" name="guest_type[' + index + ']" value="adult" ' + adultChecked + ' required> Erwachsener</label>' +
-            '                <label class="radio-inline"><input type="radio" name="guest_type[' + index + ']" value="child" ' + childChecked + ' required> Kind</label>' +
+            '            <div class="guest-type-options" role="radiogroup" aria-label="Gast Typ auswählen">' +
+            '                <input class="guest-type-input" type="radio" id="' + adultId + '" name="guest_type[' + index + ']" value="adult" ' + adultChecked + ' required>' +
+            '                <label class="guest-type-label" for="' + adultId + '">' +
+            '                    <span class="guest-type-title">Erwachsener</span>' +
+            //'                    <span class="guest-type-hint">16+</span>' +
+            '                </label>' +
+            '                <input class="guest-type-input" type="radio" id="' + childId + '" name="guest_type[' + index + ']" value="child" ' + childChecked + ' required>' +
+            '                <label class="guest-type-label" for="' + childId + '">' +
+            '                    <span class="guest-type-title">Kind</span>' +
+            //'                    <span class="guest-type-hint">0–15</span>' +
+            '                </label>' +
             '            </div>' +
             '        </div>' +
             '        <div class="col-sm-1 col-xs-2 text-right">' +
