@@ -196,6 +196,8 @@ $(document).ready(function () {
 
     $('#add-to-cal').html(myCalendar);
 
+    initAlternativeAccommodationCards();
+
 
     /********************** RSVP **********************/
     var guestList = $('#guest-list');
@@ -331,35 +333,297 @@ $(document).ready(function () {
 
 });
 
+var hofBracheLocation = {lat: 54.18096, lng: 10.32849};
+var altAccommodationMaps = {};
+var altAccommodationActiveCardId = null;
+var altAccommodationMapTimeoutId = null;
+
 /********************** Extras **********************/
 
 // Google map
 function initMap() {
-    var location = {lat: 54.18096, lng: 10.32849};
-    var map = new google.maps.Map(document.getElementById('map-canvas'), {
+    var mapCanvas = document.getElementById('map-canvas');
+    if (mapCanvas) {
+        var map = new google.maps.Map(mapCanvas, {
+            zoom: 15,
+            center: hofBracheLocation,
+            scrollwheel: false
+        });
+
+        new google.maps.Marker({
+            position: hofBracheLocation,
+            map: map
+        });
+    }
+
+    initializeAlternativeAccommodationMaps();
+}
+
+function initBBSRMap() {
+    var mapCanvas = document.getElementById('map-canvas');
+    if (!mapCanvas) {
+        return;
+    }
+
+    var map = new google.maps.Map(mapCanvas, {
         zoom: 15,
-        center: location,
+        center: hofBracheLocation,
         scrollwheel: false
     });
 
-    var marker = new google.maps.Marker({
-        position: location,
+    new google.maps.Marker({
+        position: hofBracheLocation,
         map: map
     });
 }
 
-function initBBSRMap() {
-    var la_fiesta = {lat: 54.18096, lng: 10.32849};
-    var map = new google.maps.Map(document.getElementById('map-canvas'), {
-        zoom: 15,
-        center: la_fiesta,
-        scrollwheel: false
+function findParentByClass(element, className) {
+    var currentElement = element;
+    while (currentElement && currentElement !== document) {
+        if (currentElement.classList && currentElement.classList.contains(className)) {
+            return currentElement;
+        }
+        currentElement = currentElement.parentNode;
+    }
+    return null;
+}
+
+function initAlternativeAccommodationCards() {
+    var container = document.querySelector('.alt-cards');
+    if (!container) {
+        return;
+    }
+
+    var tabs = [].slice.call(container.querySelectorAll('.alt-card-tab'));
+    var cards = [].slice.call(container.querySelectorAll('.alt-card'));
+
+    if (!tabs.length || !cards.length) {
+        return;
+    }
+
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            setActiveAlternativeCard(tab.getAttribute('data-target'));
+        });
     });
 
-    var marker = new google.maps.Marker({
-        position: la_fiesta,
-        map: map
+    var toggles = [].slice.call(container.querySelectorAll('.alt-card-toggle'));
+    toggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+            var card = findParentByClass(toggle, 'alt-card');
+            if (!card) {
+                return;
+            }
+            var collapsed = card.classList.toggle('is-collapsed');
+            toggle.setAttribute('aria-expanded', (!collapsed).toString());
+            toggle.textContent = collapsed ? 'Infos einblenden' : 'Infos ausblenden';
+            if (!collapsed) {
+                scheduleAlternativeAccommodationMapRefresh(card);
+            }
+        });
     });
+
+    var initialTarget = null;
+    var activeTab = container.querySelector('.alt-card-tab.active');
+    if (activeTab) {
+        initialTarget = activeTab.getAttribute('data-target');
+    }
+    if (!initialTarget && tabs[0]) {
+        initialTarget = tabs[0].getAttribute('data-target');
+    }
+
+    if (initialTarget) {
+        setActiveAlternativeCard(initialTarget);
+    }
+}
+
+function setActiveAlternativeCard(targetId) {
+    if (!targetId) {
+        return;
+    }
+
+    var container = document.querySelector('.alt-cards');
+    if (!container) {
+        return;
+    }
+
+    var tabs = [].slice.call(container.querySelectorAll('.alt-card-tab'));
+    tabs.forEach(function (tab) {
+        var isActive = tab.getAttribute('data-target') === targetId;
+        tab.classList.toggle('active', isActive);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    var cards = [].slice.call(container.querySelectorAll('.alt-card'));
+    var newActiveCard = null;
+
+    cards.forEach(function (card) {
+        var isTarget = card.id === targetId;
+        card.classList.toggle('active', isTarget);
+        card.setAttribute('aria-hidden', (!isTarget).toString());
+        card.setAttribute('tabindex', isTarget ? '0' : '-1');
+        var cardMap = card.querySelector('.alt-card-map');
+        if (cardMap) {
+            cardMap.setAttribute('aria-hidden', (!isTarget).toString());
+        }
+        if (isTarget) {
+            card.classList.remove('is-collapsed');
+            var toggle = card.querySelector('.alt-card-toggle');
+            if (toggle) {
+                toggle.setAttribute('aria-expanded', 'true');
+                toggle.textContent = 'Infos ausblenden';
+            }
+            newActiveCard = card;
+        }
+    });
+
+    if (newActiveCard) {
+        altAccommodationActiveCardId = newActiveCard.id;
+        scheduleAlternativeAccommodationMapRefresh(newActiveCard);
+    }
+}
+
+function scheduleAlternativeAccommodationMapRefresh(cardElement) {
+    if (!cardElement) {
+        return;
+    }
+
+    if (altAccommodationMapTimeoutId) {
+        window.clearTimeout(altAccommodationMapTimeoutId);
+        altAccommodationMapTimeoutId = null;
+    }
+
+    altAccommodationMapTimeoutId = window.setTimeout(function () {
+        altAccommodationMapTimeoutId = null;
+        renderAlternativeAccommodationMap(cardElement);
+    }, 50);
+}
+
+function renderAlternativeAccommodationMap(cardElement) {
+    console.log("Rendering alternative map")
+    if (!cardElement) {
+        return;
+    }
+
+    if (!cardElement.classList.contains('active')) {
+        return;
+    }
+
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+        return;
+    }
+
+    var cardId = cardElement.id;
+    if (!cardId) {
+        return;
+    }
+
+    var mapContainer = cardElement.querySelector('.alt-card-map');
+    if (!mapContainer || !(mapContainer instanceof Element)) {
+        return;
+    }
+
+    var lat = parseFloat(cardElement.getAttribute('data-lat'));
+    var lng = parseFloat(cardElement.getAttribute('data-lng'));
+
+    if (isNaN(lat) || isNaN(lng)) {
+        return;
+    }
+
+    var accommodationPosition = {lat: lat, lng: lng};
+    var accommodationNameElement = cardElement.querySelector('h4');
+    var accommodationName = accommodationNameElement ? accommodationNameElement.textContent.trim() : '';
+
+    var existingMapData = altAccommodationMaps[cardId];
+    console.log(existingMapData)
+
+    if (!existingMapData) {
+        console.log("Need to create new map")
+        var mapInstance = new google.maps.Map(mapContainer, {
+            center: accommodationPosition,
+            zoom: 13,
+            mapTypeControl: false,
+            streetViewControl: false,
+            fullscreenControl: false
+        });
+
+        var accommodationMarker = new google.maps.Marker({
+            position: accommodationPosition,
+            map: mapInstance,
+            title: accommodationName
+        });
+
+        var hofMarker = new google.maps.Marker({
+            position: hofBracheLocation,
+            map: mapInstance,
+            title: 'Hof Brache',
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 8,
+                fillColor: '#e8ca6f',
+                fillOpacity: 1,
+                strokeColor: '#b89641',
+                strokeWeight: 2
+            }
+        });
+
+        var bounds = new google.maps.LatLngBounds();
+        bounds.extend(hofBracheLocation);
+        bounds.extend(accommodationPosition);
+        mapInstance.fitBounds(bounds);
+
+        google.maps.event.addListenerOnce(mapInstance, 'bounds_changed', function () {
+            if (mapInstance.getZoom() > 14) {
+                mapInstance.setZoom(14);
+            }
+        });
+        console.log(mapInstance)
+
+        altAccommodationMaps[cardId] = {
+            map: mapInstance,
+            markers: {
+                accommodation: accommodationMarker,
+                hof: hofMarker
+            },
+            bounds: bounds
+        };
+
+        existingMapData = altAccommodationMaps[cardId];
+    } else {
+        console.log("Display existing map")
+        existingMapData.markers.accommodation.setPosition(accommodationPosition);
+        existingMapData.markers.accommodation.setTitle(accommodationName);
+
+        var updatedBounds = new google.maps.LatLngBounds();
+        updatedBounds.extend(hofBracheLocation);
+        updatedBounds.extend(accommodationPosition);
+        existingMapData.bounds = updatedBounds;
+        existingMapData.map.fitBounds(updatedBounds);
+
+        google.maps.event.addListenerOnce(existingMapData.map, 'bounds_changed', function () {
+            if (existingMapData.map.getZoom() > 14) {
+                existingMapData.map.setZoom(14);
+            }
+        });
+    }
+}
+
+function initializeAlternativeAccommodationMaps() {
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+        return;
+    }
+
+    if (altAccommodationActiveCardId) {
+        var activeCard = document.getElementById(altAccommodationActiveCardId);
+        if (activeCard) {
+            scheduleAlternativeAccommodationMapRefresh(activeCard);
+        }
+    } else {
+        var fallbackActive = document.querySelector('.alt-card.active');
+        if (fallbackActive) {
+            scheduleAlternativeAccommodationMapRefresh(fallbackActive);
+        }
+    }
 }
 
 // alert_markup

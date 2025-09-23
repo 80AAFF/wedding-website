@@ -160,7 +160,7 @@ Animations
 }
 
 /* ==========================================================================
-Waypoinsts
+Waypoints
 ========================================================================== */
 .wp1, .wp2, .wp3, .wp4, .wp5, .wp6, .wp7, .wp8, .wp9, .wp10 {
   visibility: hidden
@@ -563,7 +563,7 @@ Features-stack
   .time {
     font-size: 13px;
     font-style: italic;
-    text-transform: lowercase;
+    text-transform: none;
     color: $txt-primary;
   }
 }
@@ -760,6 +760,175 @@ Embed video
 }
 
 /* ==========================================================================
+Nearby accommodations
+========================================================================== */
+.nearby-accommodations {
+
+  .alt-cards {
+    margin-top: 0px;
+  }
+
+  .alt-card-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .alt-card-tab {
+    background: transparent;
+    border: 1px solid $keyline-color;
+    border-radius: 999px;
+    color: $txt-secondary;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    padding: 8px 18px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .alt-card-tab:hover,
+  .alt-card-tab:focus {
+    border-color: $accent-color;
+    color: $accent-color;
+  }
+
+  .alt-card-tab:focus {
+    outline: 2px solid $accent-color;
+    outline-offset: 2px;
+  }
+
+  .alt-card-tab.active {
+    background: $accent-color;
+    border-color: $accent-color;
+    color: $txt-secondary;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .alt-card-viewport {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .alt-card {
+    background: $white-color;
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+    display: none;
+    margin: 0 auto;
+    padding: 26px 24px;
+    text-align: left;
+    transition: box-shadow 0.2s ease-in-out;
+  }
+
+  .alt-card.active {
+    display: block;
+  }
+
+  .alt-card-header {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .alt-card-header h4 {
+    margin: 0;
+    color: $txt-secondary;
+  }
+
+  .alt-card-toggle {
+    background: none;
+    border: none;
+    color: $accent-color;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 6px 0;
+  }
+
+  .alt-card-toggle:hover,
+  .alt-card-toggle:focus {
+    color: $accent-color-hover;
+  }
+
+  .alt-card-toggle:focus {
+    outline: 2px solid $accent-color;
+    outline-offset: 4px;
+  }
+
+  .alt-card-content {
+    align-items: stretch;
+    display: flex;
+    gap: 24px;
+    margin-top: 12px;
+  }
+
+  .alt-card-body {
+    flex: 1 1 50%;
+    margin: 0;
+    padding-left: 5%;
+  }
+
+  .alt-card-body p {
+    margin-bottom: 8px;
+  }
+
+  .alt-card-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .alt-card-body i {
+    color: $accent-color;
+    margin-right: 8px;
+  }
+
+  .alt-card.is-collapsed .alt-card-body {
+    display: none;
+  }
+
+  .alt-card-map {
+    border-radius: 14px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    flex: 1 1 50%;
+    min-height: 240px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .nearby-accommodations {
+    .alt-card-nav {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      margin-left: -15px;
+      margin-right: -15px;
+      overflow-x: auto;
+      padding: 0 15px 12px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .alt-card-tab {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+
+    .alt-card-content {
+      flex-direction: column;
+    }
+
+    .alt-card-map {
+      min-height: 220px;
+    }
+  }
+}
+
+/* ==========================================================================
 Google map
 ========================================================================== */
 #map-canvas {
@@ -775,8 +944,15 @@ Google map
   margin-top: 40px;
   padding: 50px 60px;
   background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
   -webkit-transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
   transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
+
+  i {
+    color: $accent-color;
+    margin-right: 8px;
+  }
 }
 #btn-show-content {
   padding: 20px;
