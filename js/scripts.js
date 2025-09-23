@@ -198,8 +198,113 @@ $(document).ready(function () {
 
 
     /********************** RSVP **********************/
+    var guestList = $('#guest-list');
+    var addGuestBtn = $('#add-guest');
+    var guestIndex = 0;
+
+    function addDays(dateString, days) {
+        var date = new Date(dateString);
+        date.setDate(date.getDate() + days);
+        return date.toISOString().split('T')[0];
+    }
+
+    function appendGuestEntry(defaultType) {
+        var index = guestIndex++;
+        var adultChecked = defaultType === 'adult' ? 'checked' : '';
+        var childChecked = defaultType === 'child' ? 'checked' : '';
+        var entryHtml = '' +
+            '<div class="guest-entry" data-index="' + index + '">' +
+            '    <div class="row">' +
+            '        <div class="col-sm-6 col-xs-12">' +
+            '            <div class="form-input-group">' +
+            '                <i class="fa fa-user"></i><input type="text" name="guest_name[' + index + ']" class="" placeholder="Name der Begleitung" required>' +
+            '            </div>' +
+            '        </div>' +
+            '        <div class="col-sm-5 col-xs-10">' +
+            '            <div class="guest-type-options">' +
+            '                <label class="radio-inline"><input type="radio" name="guest_type[' + index + ']" value="adult" ' + adultChecked + ' required> Erwachsener</label>' +
+            '                <label class="radio-inline"><input type="radio" name="guest_type[' + index + ']" value="child" ' + childChecked + ' required> Kind</label>' +
+            '            </div>' +
+            '        </div>' +
+            '        <div class="col-sm-1 col-xs-2 text-right">' +
+            '            <button type="button" class="btn btn-link text-danger remove-guest" title="Gast entfernen">' +
+            '                <i class="fa fa-times"></i>' +
+            '            </button>' +
+            '        </div>' +
+            '    </div>' +
+            '</div>';
+        var $entry = $(entryHtml);
+        guestList.append($entry);
+        $entry.find('input[type="text"]').focus();
+    }
+
+    if (guestList.length && addGuestBtn.length) {
+        addGuestBtn.on('click', function () {
+            var existingEntries = guestList.children('.guest-entry').length;
+            var defaultType = existingEntries === 0 ? 'adult' : 'child';
+            appendGuestEntry(defaultType);
+        });
+
+        guestList.on('click', '.remove-guest', function () {
+            $(this).closest('.guest-entry').remove();
+        });
+    }
+
+    var arrivalInput = $('#arrival_date');
+    var departureInput = $('#departure_date');
+
+    function enforceDateConstraints() {
+        if (!arrivalInput.length || !departureInput.length) {
+            return true;
+        }
+
+        var arrival = arrivalInput.val();
+        var departure = departureInput.val();
+        var minRange = '2026-05-22';
+        var maxRange = '2026-05-25';
+
+        if (arrival) {
+            if (arrival < minRange || arrival > maxRange) {
+                arrivalInput[0].setCustomValidity('Datum muss zwischen dem 22. und 25. Mai 2026 liegen.');
+            } else {
+                arrivalInput[0].setCustomValidity('');
+            }
+            var dayAfterArrival = addDays(arrival, 1);
+            departureInput.attr('min', dayAfterArrival);
+        } else {
+            arrivalInput[0].setCustomValidity('');
+            departureInput.attr('min', minRange);
+        }
+
+        if (departure) {
+            if (departure < minRange || departure > maxRange) {
+                departureInput[0].setCustomValidity('Datum muss zwischen dem 22. und 25. Mai 2026 liegen.');
+            } else if (arrival && departure <= arrival) {
+                departureInput[0].setCustomValidity('Abreise muss nach Anreise liegen.');
+            } else {
+                departureInput[0].setCustomValidity('');
+            }
+        } else {
+            departureInput[0].setCustomValidity('');
+        }
+
+        return departureInput[0].checkValidity() && arrivalInput[0].checkValidity();
+    }
+
+    arrivalInput.on('change', enforceDateConstraints);
+    departureInput.on('change', enforceDateConstraints);
+    enforceDateConstraints();
+
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
+        enforceDateConstraints();
+
+        if (!this.checkValidity()) {
+            if (typeof this.reportValidity === 'function') {
+                this.reportValidity();
+            }
+            return;
+        }
         var data = $(this).serialize();
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));

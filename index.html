@@ -466,43 +466,83 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
-                                                                     placeholder="Deine Email"
+                                <i class="fa fa-user"></i><input name="name" class=""
+                                                                 placeholder="Vor- und Nachname"
                                                                      required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" class=""
-                                                                 placeholder="Dein Name"
+                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
+                                                                     placeholder="Email"
                                                                  required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-12">
+                            <p class="text-left" style="padding-bottom: 0px;">Zusätzliche Gäste hinzufügen</p>
+                            <div id="guest-list" class="guest-list"></div>
+                            <button type="button" class="btn btn-accent btn-small" id="add-guest">
+                                <i class="fa fa-user-plus"></i> Weitere Gäste hinzufügen
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
-                                                                  max="4"
-                                                                  placeholder="Ehemann/Ehefrau oder Kinder"
+                                <i class="fa fa-calendar"></i><input type="date" name="arrival_date" id="arrival_date"
+                                                                     class="" min="2026-05-22" max="2026-05-25"
                                                                   required>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
+                                <i class="fa fa-calendar"></i><input type="date" name="departure_date" id="departure_date"
+                                                                     class="" min="2026-05-22" max="2026-05-25"
+                                                                     required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-input-group">
+                                <i class="fa fa-comment"></i><textarea name="details" class="" rows="3"
+                                                                        placeholder="Weitere Informationen (z.B. Unverträglichkeiten)"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-input-group">
+                                <i class="fa fa-train"></i>
+                                <select name="transport" class="">
+                                    <option value="">Bevorzugtes Verkehrsmittel (optional)</option>
+                                    <option value="car">Auto</option>
+                                    <option value="train">Zug</option>
+                                    <option value="campervan">Campervan</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-key"></i><input type="text" name="invite_code" id="invite_code"
                                                                 class="" min="0"
                                                                 placeholder="Einladungscode"
                                                                 required>
                             </div>
                         </div>
+                        <div class="col-md-6 col-sm-6">
+                            <button class="btn-fill rsvp-btn">
+                                Ja, ich komme!
+                            </button>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12" id="alert-wrapper"></div>
                     </div>
-                    <button class="btn-fill rsvp-btn">
-                        Ja, ich komme!
-                    </button>
                 </form>
             </div>
         </div>
