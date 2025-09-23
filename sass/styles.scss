@@ -160,7 +160,7 @@ Animations
 }
 
 /* ==========================================================================
-Waypoinsts
+Waypoints
 ========================================================================== */
 .wp1, .wp2, .wp3, .wp4, .wp5, .wp6, .wp7, .wp8, .wp9, .wp10 {
   visibility: hidden
@@ -563,7 +563,7 @@ Features-stack
   .time {
     font-size: 13px;
     font-style: italic;
-    text-transform: lowercase;
+    text-transform: none;
     color: $txt-primary;
   }
 }
