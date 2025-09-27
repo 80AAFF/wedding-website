@@ -81,18 +81,23 @@ $(document).ready(function () {
     });
 
     /***************** Tooltips ******************/
-    $('[data-toggle="tooltip"]').tooltip();
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        if (window.bootstrap && typeof bootstrap.Tooltip === 'function' && window.Popper) {
+            new bootstrap.Tooltip(tooltipTriggerEl);
+        }
+    });
 
     /***************** Nav Transformicon ******************/
 
     /* When user clicks the Icon */
-    $('.nav-toggle').click(function () {
+    $('.nav-toggle').on('click', function (event) {
+        event.preventDefault();
         $(this).toggleClass('active');
         $('.header-nav').toggleClass('open');
-        event.preventDefault();
     });
     /* When user clicks a link */
-    $('.header-nav li a').click(function () {
+    $('.header-nav li a').on('click', function () {
         $('.nav-toggle').toggleClass('active');
         $('.header-nav').toggleClass('open');
 
@@ -204,6 +209,16 @@ $(document).ready(function () {
     var addGuestBtn = $('#add-guest');
     var guestIndex = 0;
 
+    function showModal(modalId) {
+        var modalElement = document.getElementById(modalId);
+        if (!modalElement) {
+            return;
+        }
+        if (window.bootstrap && typeof bootstrap.Modal === 'function') {
+            bootstrap.Modal.getOrCreateInstance(modalElement).show();
+        }
+    }
+
     function addDays(dateString, days) {
         var date = new Date(dateString);
         date.setDate(date.getDate() + days);
@@ -219,29 +234,27 @@ $(document).ready(function () {
         var entryHtml = '' +
             '<div class="guest-entry" data-index="' + index + '">' +
             '    <div class="row">' +
-            '        <div class="col-sm-6 col-xs-12">' +
+            '        <div class="col-md-6 col-12">' +
             '            <div class="form-input-group" style="margin: 0px 0px;">' +
             '                <i class="fa fa-user"></i><input type="text" name="guest_name[' + index + ']" class="" placeholder="Name der Begleitung" required>' +
             '            </div>' +
             '        </div>' +
-            '        <div class="col-sm-5 col-xs-10">' +
-            '            <div class="guest-type-options" role="radiogroup" aria-label="Gast Typ auswählen">' +
+            '        <div class="col-md-6 col-12 d-inline-flex options-remove-group">' +
+            '            <div class="guest-type-options flex-grow-1" role="radiogroup" aria-label="Gast Typ auswählen">' +
             '                <input class="guest-type-input" type="radio" id="' + adultId + '" name="guest_type[' + index + ']" value="adult" ' + adultChecked + ' required>' +
             '                <label class="guest-type-label" for="' + adultId + '">' +
-            '                    <span class="guest-type-title">Erwachsener</span>' +
-            //'                    <span class="guest-type-hint">16+</span>' +
+            '                    <span class="d-none d-xl-inline guest-type-title">Erwachsener</span>' +
+            '                    <span class="d-inline d-xl-none guest-type-title">Erw.</span>' +
             '                </label>' +
             '                <input class="guest-type-input" type="radio" id="' + childId + '" name="guest_type[' + index + ']" value="child" ' + childChecked + ' required>' +
             '                <label class="guest-type-label" for="' + childId + '">' +
-            '                    <span class="guest-type-title">Kind</span>' +
-            //'                    <span class="guest-type-hint">0–15</span>' +
+            '                    <span class="d-inline guest-type-title">Kind</span>' +
             '                </label>' +
             '            </div>' +
-            '        </div>' +
-            '        <div class="col-sm-1 col-xs-2 text-right">' +
-            '            <button type="button" class="btn btn-link text-danger remove-guest" title="Gast entfernen">' +
+            '            <button type="button" class="btn btn-link remove-guest" title="Gast entfernen">' +
             '                <i class="fa fa-times"></i>' +
             '            </button>' +
+            '        </div>' +
             '        </div>' +
             '    </div>' +
             '</div>';
@@ -262,54 +275,8 @@ $(document).ready(function () {
         });
     }
 
-    var arrivalInput = $('#arrival_date');
-    var departureInput = $('#departure_date');
-
-    function enforceDateConstraints() {
-        if (!arrivalInput.length || !departureInput.length) {
-            return true;
-        }
-
-        var arrival = arrivalInput.val();
-        var departure = departureInput.val();
-        var minRange = '2026-05-22';
-        var maxRange = '2026-05-25';
-
-        if (arrival) {
-            if (arrival < minRange || arrival > maxRange) {
-                arrivalInput[0].setCustomValidity('Datum muss zwischen dem 22. und 25. Mai 2026 liegen.');
-            } else {
-                arrivalInput[0].setCustomValidity('');
-            }
-            var dayAfterArrival = addDays(arrival, 1);
-            departureInput.attr('min', dayAfterArrival);
-        } else {
-            arrivalInput[0].setCustomValidity('');
-            departureInput.attr('min', minRange);
-        }
-
-        if (departure) {
-            if (departure < minRange || departure > maxRange) {
-                departureInput[0].setCustomValidity('Datum muss zwischen dem 22. und 25. Mai 2026 liegen.');
-            } else if (arrival && departure <= arrival) {
-                departureInput[0].setCustomValidity('Abreise muss nach Anreise liegen.');
-            } else {
-                departureInput[0].setCustomValidity('');
-            }
-        } else {
-            departureInput[0].setCustomValidity('');
-        }
-
-        return departureInput[0].checkValidity() && arrivalInput[0].checkValidity();
-    }
-
-    arrivalInput.on('change', enforceDateConstraints);
-    departureInput.on('change', enforceDateConstraints);
-    enforceDateConstraints();
-
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
-        enforceDateConstraints();
 
         if (!this.checkValidity()) {
             if (typeof this.reportValidity === 'function') {
@@ -331,12 +298,12 @@ $(document).ready(function () {
                         $('#alert-wrapper').html(alert_markup('danger', data.message));
                     } else {
                         $('#alert-wrapper').html('');
-                        $('#rsvp-modal').modal('show');
+                        showModal('rsvp-modal');
                     }
                 })
                 .fail(function (data) {
                     console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Es gibt ein Problem mit dem Server. '));
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Es gibt ein Problem mit dem Server.'));
                 });
         }
     });

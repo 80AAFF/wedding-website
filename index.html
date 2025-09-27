@@ -76,9 +76,9 @@
                             <li><a href="#intro">Unsere Geschichte</a></li>
                             <li><a href="#events">Ablauf</a></li>
                             <li><a href="#eng-pics">Das sind wir</a></li>
-                            <li class="hidden-sm hidden-xs"><a href="#video-bg">Einblick in den Hof</a></li>
-                            <li class="hidden-sm hidden-xs"><a href="#accommodations">Unterkünfte</a></li>
-                            <li class="hidden-sm hidden-xs"><a href="#contribution">Euer Beitrag</a></li>
+                            <li class="d-none d-lg-inline-block"><a href="#video-bg">Einblick in den Hof</a></li>
+                            <li class="d-none d-lg-inline-block"><a href="#accommodations">Unterkünfte</a></li>
+                            <li class="d-none d-lg-inline-block"><a href="#contribution">Euer Beitrag</a></li>
                         </ul>
                         <ul class="member-actions">
                             <li><a href="#map" class="login">Veranstaltungsort</a></li>
@@ -93,18 +93,17 @@
         </header>
     </section>
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
                 <div class="text-center hero-content">
                     <img src="img/logo-lg.png">
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-4 hidden-xs"></div>
-            <div class="text-center col-sm-4 hidden-xs"><a href="#rsvp"
-                                                           class="btn btn-accent btn-large rsvp-btn">Zusagen</a></div>
-            <div class="col-sm-4 hidden-xs"></div>
+        <div class="row justify-content-center">
+            <div class="text-center col-md-4 d-none d-md-block">
+                <a href="#rsvp" class="btn btn-accent btn-large rsvp-btn">Zusagen</a>
+            </div>
         </div>
     </div>
     <div class="down-arrow floating-arrow"><a href="#invitation"><i class="fa fa-angle-down"></i></a></div>
@@ -113,7 +112,7 @@
 <section id="invitation" class="section-padding">
     <div class="container">
         <div class="row">
-            <div class="text-center col-md-12">
+            <div class="text-center col-lg-12">
                 <h3>Wir haben ja gesagt</h3>
                 <h4>und das wollen wir gemeinsam mit euch feiern!</h4>
                 <p>
@@ -129,13 +128,13 @@
 <section id="intro">
     <div class="container">
         <div class="row">
-            <div class="text-center col-md-12">
+            <div class="text-center col-lg-12">
                 <h3 class="header">Unsere Geschichte</h3>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/tina.jpg" class="wp1"></div>
-            <div class="col-md-6">
+        <div class="row justify-content-center">
+            <div class="col-lg-3 d-none d-lg-block"><img src="img/tina.jpg" class="wp1"></div>
+            <div class="col-lg-6">
                 <p>
                     Kennengelernt haben wir uns als Tina-Tintenfisch und Anton-Ananas. Danach brauchte es viele 
                     Jahre und eine globale Pandemie, um uns näher zu bringen. An einem lauen Sommerabend auf (jetzt) 
@@ -149,11 +148,11 @@
                     Ja-Wort zu geben.
                 </p>
             </div>
-            <div class="col-md-3 hidden-sm hidden-xs"><img src="img/anton.jpg" class="wp2"></div>
+            <div class="col-lg-3 d-none d-lg-block"><img src="img/anton.jpg" class="wp2"></div>
         </div>
-        <div class="row">
-            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/tina.jpg" class="wp11"></div>
-            <div class="col-sm-4 col-sm-push-2 col-xs-6 hidden-md hidden-lg"><img src="img/anton.jpg" class="wp12"></div>
+        <div class="row d-lg-none justify-content-center">
+            <div class="col-6 col-lg-4"><img src="img/tina.jpg" class="wp11"></div>
+            <div class="col-6 col-lg-4"><img src="img/anton.jpg" class="wp12"></div>
         </div>
     </div>
 </section>
@@ -161,12 +160,12 @@
 <section class="events section-padding" id="events">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <h3 class="header">Ablauf</h3>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
+            <div class="col-lg-6 col-md-12 col-12 leftcol">
                 <div class="wp3">
                     <p><strong>22. Mai - Freitag</strong></p>
 
@@ -188,7 +187,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
+            <div class="col-lg-6 col-md-12 col-12 rightcol">
                 <div class="wp4">
                     <p><strong>23. Mai - Samstag</strong></p>
 
@@ -214,7 +213,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12 leftcol">
+            <div class="col-lg-6 col-md-12 col-12 leftcol">
                 <div class="wp7">
                     <p><strong>24. Mai - Sonntag</strong></p>
 
@@ -236,7 +235,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
+            <div class="col-lg-6 col-md-12 col-12 rightcol">
                 <div class="wp8">
                     <p><strong>25. Mai - Montag</strong></p>
 
@@ -260,24 +259,19 @@
             </div>
         </div>
         <div class="row section-padding">
-            <div class="text-center col-md-4 col-md-offset-4">
-                <a class="btn btn-accent btn-small" data-toggle="modal" data-target="#dc-modal">
+            <div class="text-center col-md-4 offset-md-4">
+                <a class="btn btn-accent btn-small" data-bs-toggle="modal" data-bs-target="#dc-modal">
                     <i class="fa fa-barcode"></i>&nbsp;&nbsp;Dress code
                 </a>
             </div>
         </div>
-        <!--<div class="row">
-            <div class="col-xs-12 section-border section-padding">
-            </div>
-        </div>-->
     </div>
 
     <div id="dc-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <h3 class="text-center section-padding">Ugh... dress codes?</h3>
                     <h5>Hochzeitsfeier <span class="time">Samstag ab 15h</span></h5>
                     <p>
@@ -325,12 +319,12 @@
 <section id="eng-pics" class="section-padding">
     <div class="container-fluid">
         <div class="row">
-            <div class="text-center col-md-12">
+            <div class="text-center col-lg-12">
                 <h3 class="header">Das sind wir</h3>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-lg-2">
                 <a class="fancybox" rel="group" href="img/mr_pics/IMG_1124-lg.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
@@ -340,7 +334,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-2">
                 <a class="fancybox" rel="group" href="img/mr_pics/IMG_1930-lg.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
@@ -350,7 +344,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-2">
                 <a class="fancybox" rel="group" href="img/mr_pics/120214-lg.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
@@ -360,7 +354,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-2">
                 <a class="fancybox" rel="group" href="img/mr_pics/IMG_1212-lg.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
@@ -370,7 +364,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-2">
                 <a class="fancybox" rel="group" href="img/mr_pics/IMG_1221-lg.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
@@ -380,7 +374,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="col-lg-2">
                 <a class="fancybox" rel="group" href="img/mr_pics/DSC07609-02-lg.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
@@ -393,21 +387,13 @@
         </div>
     </div>
     <div class="container">
-        <div class="row hidden-lg hidden-md hidden-xs">
-            <div class="col-xs-12 section-border section-padding"></div>
+        <div class="row d-none d-md-flex d-lg-none">
+            <div class="col-12 section-border section-padding"></div>
         </div>
     </div>
-    <!--<div class="row">
-        <div class="col-md-12">
-            <div class="diamond floating-logo">
-                <img src="img/sketch-logo.png" alt="Sketch Logo">
-                <div class="ring"></div>
-            </div>
-        </div>
-    </div>-->
 </section>
 
-<section id="video-bg" class="hidden-sm hidden-xs">
+<section id="video-bg" class="d-none d-lg-block">
     <div id="bgndVideo" class="player"
          data-property="{videoURL:'https://youtu.be/4uEQNxx2mnA',containment:'#video-bg',autoPlay:true, mute:true, showControls:false, opacity:1}">
     </div>
@@ -420,13 +406,12 @@
 <section id="map" class="section-padding">
     <div class="container">
         <div class="row">
-            <div class="text-center col-md-12">
+            <div class="text-center col-lg-12">
                 <h3>Wie komme ich nach Brache?</h3>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs"></div>
-            <div class="col-md-6 text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
                 <p>
                     Es ist viel einfacher, als du denkst!
                 </p>
@@ -439,13 +424,12 @@
                     Eine Abholung vom Bahnhof bekommen wir für euch organisiert.
                 </p>
             </div>
-            <div class="col-md-3 hidden-sm hidden-xs"></div>
         </div>
     </div>
     <div id="map-canvas"></div>
     <div id="map-content-wrapper" class="container pointer-events-none">
         <div class="row">
-            <div class="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
+            <div class="col-10 col-lg-6 offset-lg-3 mx-auto">
                 <div class="text-center">
                     <div id="btn-show-content" class="pointer-events-auto toggle-map-content">
                         <i class="fa fa-info-circle"></i>&nbsp;&nbsp; Show info
@@ -453,11 +437,11 @@
                 </div>
                 <div id="map-content" class="pointer-events-auto alt-card">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-lg-6">
                             <h5>Hof Brache</h5>
                             <p>Brache 2, 24211 Wahlstorf, Germany</p>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-lg-6">
                             <h5>Optionen</h5>
                             <p>
                                 <i class="fa fa-train"></i> 
@@ -466,14 +450,12 @@
                             </p>
                         </div>
                     </div>
-                    <div class="text-center row">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6" style="padding: 5px;">
+                    <div class="text-center row justify-content-center">
+                        <div class="col-lg-6" style="padding: 5px;">
                             <a class="btn btn-accent btn-small" id="btn-show-map">
                                 <i class="fa fa-map-marker"></i>&nbsp;&nbsp;Show map
                             </a>
                         </div>
-                        <div class="col-md-3"></div>
                     </div>
                 </div>
             </div>
@@ -484,13 +466,12 @@
 <section id="accommodations" class="accommodations text-center">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-lg-12 text-center">
                 <h3>Unterkünfte auf dem Hof und der Umgebung</h3>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs"></div>
-            <div class="text-center col-md-6">
+        <div class="row justify-content-center">
+            <div class="text-center col-lg-6">
                 <p>
                     Wir wollen euch alle dabei haben! Dafür habe wir eine größere Location gewählt, bei der wir 
                     allerdings alles selbst organisieren. An der einen oder anderen Stelle würden wir uns deshalb 
@@ -507,10 +488,9 @@
                     first come-first serve.
                 </p>
             </div>
-            <div class="col-md-3 hidden-sm hidden-xs"></div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-lg-6 offset-lg-3">
                 <p>
                     Einige weitere Unterkünfte in der Nähe findet ihr direkt unterhalb.
                 </p>
@@ -522,7 +502,7 @@
 <section id="nearby-accommodations" class="nearby-accommodations text-center section-padding">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div class="alt-cards">
                     <div class="alt-card-nav" role="tablist">
                         <button type="button" class="alt-card-tab active" id="alt-tab-flair-hotel-neeth"
@@ -682,28 +662,32 @@
 <section id="contribution" class="contribution text-center section-padding">
     <div class="container">
         <div class="row">
-            <div class="text-center col-md-12">
+            <div class="text-center col-lg-12">
                 <h3>Euer Beitrag zur Feier</h3>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
                 <p>
-                    Hier ergänzen wir demnächst weitere Informationen rund um den geplanten Aufbau, das Buffet 
-                    und geplante Spiele.
+                    Hier ergänzen wir demnächst weitere Informationen, wo wir für die Feier noch Unterstützung 
+                    brauchen - sei es beim Aufbau und der Dekoration, bei kulinarischen Mitbringseln für Freitag 
+                    oder beim Frühstück. Auch wer sich mit Spielen, Reden oder anderen spaßigen Beiträgen 
+                    einbringen möchte, findet hier bald weitere Infos. Und falls ihr euch irgendwann fragt: „Was 
+                    schenken wir den beiden bloß? 🎁 🤔“ - hier schon vorab: Als kleine, hoffentlich bald große 
+                    Erinnerung an unsere Hochzeit möchten wir das Berliner Projekt „Stadtbäume für Berlin“ 
+                    unterstützen. Wir freuen uns daher über einen kleinen Obolus für ein oder zwei neue Berliner 
+                    Bäume - und natürlich auch für die Feier selbst 🌳 🥂 🥳.
                 </p>
             </div>
-            <div class="col-md-3"></div>
         </div>
         <!-- <div class="row">
-            <div class="col-md-4">
+            <div class="col-lg-4">
                 <p>Aufbau</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4">
                 <p>Buffet</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4">
                 <p>Spiele</p>
             </div>
         </div> -->
@@ -716,8 +700,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="section-padding">
                         <h3>Danke!</h3>
                         <p>Wir freuen uns darauf euch auf unserer Hochzeit zu sehen!</p>
@@ -730,30 +713,26 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-lg-6 offset-lg-3">
                 <h3>Worauf wartest du noch?</h3>
                 <p>Wir würden uns sehr freuen, wenn ihr uns bis zum 1. November 2025 eine Rückmeldung geben könntet.</p>
-                <form id="rsvp-form" class="rsvp-form"
-                      action=""
-                      method="POST">
+                <form id="rsvp-form" class="rsvp-form" action="" method="POST">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" class=""
-                                                                 placeholder="Vor- und Nachname"
-                                                                 required>
+                                <i class="fa fa-user"></i>
+                                <input name="name" class="" placeholder="Vor- und Nachname" required>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
-                                                                     placeholder="Email"
-                                                                 required>
+                                <i class="fa fa-envelope"></i>
+                                <input type="email" name="email" class="" placeholder="Email" required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-lg-12">
                             <div id="guest-list" class="guest-list"></div>
                             <button type="button" class="btn btn-accent btn-small" id="add-guest">
                                 <i class="fa fa-user-plus"></i> Weiteren Gast hinzufügen
@@ -761,35 +740,42 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="form-input-group">
-                                <i class="fa fa-calendar"></i><input type="date" name="arrival_date" id="arrival_date"
-                                                                     class="" min="2026-05-22" max="2026-05-25"
-                                                                     required>
+                                <i class="fa fa-arrow-down"></i>
+                                <select name="arrival_date" id="arrival_date" class="" required>
+                                    <option class="custom-placeholder" value="" disabled selected hidden>Ankunftsdatum</option>
+                                    <option value="friday">Freitag 22. Mai</option>
+                                    <option value="saturday">Samstag 23. Mai</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="form-input-group">
-                                <i class="fa fa-calendar"></i><input type="date" name="departure_date" id="departure_date"
-                                                                     class="" min="2026-05-22" max="2026-05-25"
-                                                                     required>
+                                <i class="fa fa-arrow-up"></i>
+                                <select name="departure_date" id="departure_date" class="" required>
+                                    <option class="custom-placeholder" value="" disabled selected hidden>Abreisedatum</option>
+                                    <option value="saturday">Samstag 23. Mai</option>
+                                    <option value="sunday">Sonntag 24. Mai</option>
+                                    <option value="monday">Montag 25. Mai</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-lg-12">
                             <div class="form-input-group">
-                                <i class="fa fa-comment"></i><textarea name="details" class="" rows="2"
-                                                                        placeholder="Weitere Informationen (z.B. Unverträglichkeiten)"></textarea>
+                                <i class="fa fa-comment"></i>
+                                <textarea name="details" class="" rows="2" placeholder="Weitere Informationen (z.B. Unverträglichkeiten)"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-lg-12">
                             <div class="form-input-group">
                                 <i class="fa fa-train"></i>
                                 <select name="transport" class="">
-                                    <option value="">Bevorzugtes Verkehrsmittel (optional)</option>
+                                    <option class="custom-placeholder" value="" selected hidden>Bevorzugtes Verkehrsmittel (optional)</option>
                                     <option value="car">Auto</option>
                                     <option value="train">Zug</option>
                                     <option value="campervan">Campervan</option>
@@ -798,28 +784,21 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-lg-12">
                             <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="text" name="invite_code" id="invite_code"
-                                                                class="" min="0"
-                                                                placeholder="Einladungscode"
-                                                                required>
+                                <i class="fa fa-key"></i>
+                                <input type="text" name="invite_code" id="invite_code" class="" min="0" placeholder="Einladungscode" required>
                             </div>
                         </div>
-                        <!-- <div class="col-md-6 col-sm-6">
-                            <button class="btn-fill rsvp-btn">
-                                Ja, ich komme!
-                            </button>
-                        </div> -->
                     </div>
                     <div class="row">
-                        <div class="col-md-12" id="alert-wrapper"></div>
+                        <div class="col-lg-12" id="alert-wrapper"></div>
                     </div>
                     <button class="btn-fill rsvp-btn">
                         Ja, ich komme!
                     </button>
                     <div class="row">
-                        <div class="col-md-12 text-center" style="padding-top: 10px;">
+                        <div class="col-lg-12 text-center" style="padding-top: 10px;">
                             <p>
                                 Bis zur Feier füllen wir die Website Schritt für Schritt mit weiteren Infos. Schaut 
                                 also ab und zu hier vorbei und behaltet auch euer Mailfach im Blick.
@@ -835,7 +814,7 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="text-center col-sm-12 content">
+            <div class="text-center col-lg-12 content">
                 <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up"></i></a></span>
                 <p>Von Anton mit viel <span class="fa fa-heart pulse2"></span> für Tina erstellt</p>
             </div>
