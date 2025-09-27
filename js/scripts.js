@@ -319,12 +319,12 @@ $(document).ready(function () {
         }
         var data = $(this).serialize();
 
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
+        $('#alert-wrapper').html(alert_markup('info', '<strong>Einen Moment!</strong> Wir speichern deine Angaben.'));
 
         if (MD5($('#invite_code').val()) !== '496f8b3554f398de3ea96f21484dd5a3') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Dein Einladungscode ist nicht korrekt.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbypqFvc0c9r6RHY4xi1Vd_BVVgl1rhJo-R_WoixEqgT7gBXhH_c30preKiCbilm0Nly/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbxBKJVu5NZuan_pZiev5uQuPRuJSgoZZ11qbJU36NCarVfMBXZ5WBGqqeKDmCvZ7TIC/exec', data)
                 .done(function (data) {
                     console.log(data);
                     if (data.result === "error") {
