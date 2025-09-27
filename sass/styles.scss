@@ -301,6 +301,7 @@ header {
   padding: 50px 0;
   border-bottom: solid 1px rgba(255, 255, 255, 0.2);
   position: relative;
+  //width: 100%;
   width: 1170px;
   margin: 0 auto;
   transition: padding 300ms ease-in-out;
@@ -829,6 +830,7 @@ Nearby accommodations
     align-items: center;
     display: flex;
     gap: 12px;
+    width: 100%;
     justify-content: space-between;
     margin-bottom: 12px;
   }
