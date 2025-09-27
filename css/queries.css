@@ -230,7 +230,12 @@
         border-radius: 0;
     }
 
+    #map-canvas {
+        height: 420px;
+    }
+
     #map-content-wrapper {
+        margin-top: -422px;
         margin-bottom: 40px;
     }
     
@@ -265,8 +270,13 @@
         top: 10px;
         right: 10px; }
 
+    #map-canvas {
+        height: 420px;
+    }
+
     #map-content-wrapper {
-        margin-bottom: 0;
+        margin-top: -422px;
+        margin-bottom: 40px;
     }
     
     footer ul.footer-group {
