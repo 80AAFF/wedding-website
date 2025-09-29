@@ -139,7 +139,6 @@ $(document).ready(function () {
     /***************** Smooth Scrolling ******************/
 
     $(function () {
-
         $('a[href*=#]:not([href=#])').click(function () {
             if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
 
@@ -153,7 +152,6 @@ $(document).ready(function () {
                 }
             }
         });
-
     });
 
     /********************** Embed youtube video *********************/
@@ -217,12 +215,6 @@ $(document).ready(function () {
         if (window.bootstrap && typeof bootstrap.Modal === 'function') {
             bootstrap.Modal.getOrCreateInstance(modalElement).show();
         }
-    }
-
-    function addDays(dateString, days) {
-        var date = new Date(dateString);
-        date.setDate(date.getDate() + days);
-        return date.toISOString().split('T')[0];
     }
 
     function appendGuestEntry(defaultType) {
@@ -307,7 +299,6 @@ $(document).ready(function () {
                 });
         }
     });
-
 });
 
 var hofBracheLocation = {lat: 54.18096, lng: 10.32849};
@@ -605,7 +596,7 @@ function initializeAlternativeAccommodationMaps() {
 
 // alert_markup
 function alert_markup(alert_type, msg) {
-    return '<div class="alert alert-' + alert_type + '" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button></div>';
+    return '<div class="alert alert-dismissible fade show alert-' + alert_type + '" role="alert">' + msg + '<button type="button" class="btn-close position-absolute end-0 me-2" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 }
 
 // MD5 Encoding
