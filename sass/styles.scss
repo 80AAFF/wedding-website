@@ -656,6 +656,7 @@ Embed video
 ========================================================================== */
 #video-bg {
   height: 300px;
+  background: url("../img/garden-view.jpg") left bottom -310px;
 }
 #video-content {
   width: 100%;
@@ -673,6 +674,13 @@ Embed video
 }
 #video-content p {
   color: #ffffff;
+}
+
+@media (min-width: 1800px) {
+  #video-bg {
+    background-size: 100% auto;
+    background-position: center;
+  }
 }
 
 /* ==========================================================================
