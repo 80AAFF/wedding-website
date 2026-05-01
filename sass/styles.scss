@@ -903,6 +903,11 @@ Google map
 
 #contribution {
   padding-bottom: 0px;
+
+  ul.list--bulleted > li {
+    list-style: disc;
+    list-style-position: inside;
+  }
 }
 
 /* ==========================================================================
